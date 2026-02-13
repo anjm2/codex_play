@@ -152,7 +152,7 @@ cargo run -- ../sample_input.txt --top 5 --contains rust
 - 원인: Rust 코드 문제가 아니라, **MSVC C/C++ 링커(`link.exe`)가 설치/환경등록되지 않은 상태**입니다.
 - 빠른 해결(권장):
   1. Visual Studio Installer 실행
-  2. **Build Tools for Visual Studio 2019/2022** 설치(또는 Visual Studio Community)
+  2. **Build Tools for Visual Studio 2026** 설치
   3. 워크로드에서 **Desktop development with C++** 선택
   4. 설치 후 **x64 Native Tools Command Prompt for VS** 또는 새 PowerShell/CMD에서 다시 실행
 
