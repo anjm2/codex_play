@@ -152,7 +152,7 @@ cargo run -- ../sample_input.txt --top 5 --contains rust
 - 원인: Rust 코드 문제가 아니라, **MSVC C/C++ 링커(`link.exe`)가 설치/환경등록되지 않은 상태**입니다.
 - 빠른 해결(권장):
   1. Visual Studio Installer 실행
-  2. **Build Tools for Visual Studio 2019/2022** 설치(또는 Visual Studio Community)
+  2. **Build Tools for Visual Studio 2026** 설치
   3. 워크로드에서 **Desktop development with C++** 선택
   4. 설치 후 **x64 Native Tools Command Prompt for VS** 또는 새 PowerShell/CMD에서 다시 실행
 
@@ -181,11 +181,6 @@ cargo run -- ../sample_input.txt --top 5 --contains rust
   - Rust 전용 IDE에 가까운 경험(리팩터링/탐색/디버깅 편의성이 좋음).
   - 장점: 대규모 프로젝트로 갈수록 생산성 체감이 큼.
   - 단점: 유료 플랜/리소스 사용량.
-- **Visual Studio 2022 (IDE) + C++ 도구**
-  - 이미 `link.exe` 문제 해결을 위해 설치했다면 디버깅 환경까지 함께 구성 가능.
-  - 장점: Windows 네이티브 디버깅에 강함.
-  - 단점: Rust 개발 주력 도구로는 보통 VS Code/RustRover를 더 많이 사용.
-
 **추천 결론:**
 - 지금처럼 PowerShell 중심 학습이면, **VS Code + rust-analyzer** 조합이 가장 빠르고 안정적입니다.
 - 터미널에서는 계속 `cargo check`, `cargo run`, `cargo fmt`, `cargo clippy`를 습관화하세요.
