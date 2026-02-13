@@ -148,6 +148,29 @@ cd week1_compare/rust
 cargo run -- ../sample_input.txt --top 5 --contains rust
 ```
 
+#### Windows에서 `link.exe not found` 오류가 날 때
+- 원인: Rust 코드 문제가 아니라, **MSVC C/C++ 링커(`link.exe`)가 설치/환경등록되지 않은 상태**입니다.
+- 빠른 해결(권장):
+  1. Visual Studio Installer 실행
+  2. **Build Tools for Visual Studio 2026** 설치
+  3. 워크로드에서 **Desktop development with C++** 선택
+  4. 설치 후 **x64 Native Tools Command Prompt for VS** 또는 새 PowerShell/CMD에서 다시 실행
+
+```bash
+cd week1_compare/rust
+cargo run -- ../sample_input.txt --top 5 --contains rust
+```
+
+- 대안(툴체인 변경): `gnu` 타깃을 사용하면 `link.exe` 대신 GNU 툴체인을 사용할 수 있습니다.
+
+```bash
+rustup toolchain install stable-x86_64-pc-windows-gnu
+rustup default stable-x86_64-pc-windows-gnu
+cargo run -- ../sample_input.txt --top 5 --contains rust
+```
+
+- 참고: VS Code만 설치되어 있으면 빌드 도구가 없는 경우가 많아 동일 오류가 발생할 수 있습니다.
+
 ### 비교 포인트
 - Python: 코드가 짧고 빠르게 작성 가능 (`Counter`, `argparse`).
 - Rust: 소유권/에러 처리(`Result`)를 통해 실행 전 안정성을 높일 수 있음.
