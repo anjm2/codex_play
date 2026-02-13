@@ -111,3 +111,30 @@
 - 초반 2주는 "속도"보다 "컴파일 에러 이해"에 집중하는 편이 장기적으로 빠르다.
 - 막히면 코드를 줄여 최소 재현 예제로 바꿔서 원인을 먼저 확인하자.
 - Rust는 "한 번 맞게 설계하면 유지보수가 쉬워지는" 언어에 가깝다.
+
+## 1주차 비교 실습: Rust vs Python
+
+아래 예제는 같은 요구사항(단어 빈도 집계 + 키워드 포함 줄 필터링)을 Python과 Rust로 각각 구현한 것입니다.
+
+### 파일 구조
+- `week1_compare/sample_input.txt`
+- `week1_compare/python/word_count.py`
+- `week1_compare/rust/src/main.rs`
+
+### 실행 방법
+
+#### Python 버전
+```bash
+python3 week1_compare/python/word_count.py week1_compare/sample_input.txt --top 5 --contains rust
+```
+
+#### Rust 버전
+```bash
+cd week1_compare/rust
+cargo run -- ../sample_input.txt --top 5 --contains rust
+```
+
+### 비교 포인트
+- Python: 코드가 짧고 빠르게 작성 가능 (`Counter`, `argparse`).
+- Rust: 소유권/에러 처리(`Result`)를 통해 실행 전 안정성을 높일 수 있음.
+- Python은 런타임 예외 중심, Rust는 컴파일 타임 검증 중심.
