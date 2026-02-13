@@ -29,6 +29,20 @@
 - `borrow checker` 오류 메시지를 스스로 해석 가능
 - `clone`을 무작정 쓰지 않고 참조로 해결 시도 가능
 
+#### 체크리스트 해설 (무슨 뜻인지 + 어떤 코드 볼지)
+- `borrow checker` 해석 가능:
+  - 의미: 컴파일 에러에서 "누가 소유하고(ownership), 어디서 빌렸는지(borrow), 언제까지 유효한지(lifetime)"를 읽고 수정 방향을 잡을 수 있다는 뜻.
+  - 먼저 볼 코드: `week1_compare/rust/src/main.rs`의 `normalize_words`, `top_words`, `filter_lines`. (`&str` 입력과 `String` 소유권 생성 흐름 확인)
+- `clone` 남발하지 않기:
+  - 의미: 에러를 피하려고 복제를 습관적으로 쓰기보다, `&str`/`&String` 같은 참조 전달로 해결을 먼저 시도하라는 뜻.
+  - 먼저 볼 코드: `top_words(&file, top_n)`, `filter_lines(&file, &keyword)`처럼 값 소유권을 옮기지 않고 참조로 호출하는 부분.
+
+#### 1주차에 실제로 해볼 미니 연습
+1. `main.rs`에서 `top_words(&file, top_n)`를 `top_words(file, top_n)`로 바꿔 컴파일 에러를 확인한다.
+2. 에러 메시지를 읽고 왜 `file`이 move되는지 이해한 뒤 다시 `&file`로 고친다.
+3. `contains = Some(value.clone())` 줄을 보고, 왜 여기서는 clone이 필요한지(소유권 보존) 스스로 설명해본다.
+4. 같은 요구사항의 Python 코드(`week1_compare/python/word_count.py`)와 비교해 "왜 Python에서는 같은 종류의 에러가 컴파일 단계에 안 보이는지"를 정리한다.
+
 ---
 
 ### 2주차: 컬렉션, 에러 처리, 모듈화
