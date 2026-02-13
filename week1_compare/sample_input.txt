@@ -1,0 +1,3 @@
+Rust makes safety practical.
+Python makes prototyping fast.
+Rust and Python can work together.
