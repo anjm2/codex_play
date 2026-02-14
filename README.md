@@ -171,6 +171,20 @@ cargo run -- ../sample_input.txt --top 5 --contains rust
 
 - 참고: VS Code만 설치되어 있으면 빌드 도구가 없는 경우가 많아 동일 오류가 발생할 수 있습니다.
 
+
+#### IDE/에디터 추천 (PowerShell + Rust 학습 기준)
+- **VS Code (가장 무난한 시작점)**
+  - Python 때 쓰던 환경을 그대로 활용 가능.
+  - 확장 추천: `rust-analyzer`, `CodeLLDB`, `Even Better TOML`.
+  - 장점: 가볍고 익숙함, Python/Rust 병행 학습에 좋음.
+- **RustRover (JetBrains)**
+  - Rust 전용 IDE에 가까운 경험(리팩터링/탐색/디버깅 편의성이 좋음).
+  - 장점: 대규모 프로젝트로 갈수록 생산성 체감이 큼.
+  - 단점: 유료 플랜/리소스 사용량.
+**추천 결론:**
+- 지금처럼 PowerShell 중심 학습이면, **VS Code + rust-analyzer** 조합이 가장 빠르고 안정적입니다.
+- 터미널에서는 계속 `cargo check`, `cargo run`, `cargo fmt`, `cargo clippy`를 습관화하세요.
+
 ### 비교 포인트
 - Python: 코드가 짧고 빠르게 작성 가능 (`Counter`, `argparse`).
 - Rust: 소유권/에러 처리(`Result`)를 통해 실행 전 안정성을 높일 수 있음.
